@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Save the date">
+    <meta name="author" content="Arnold&Raveena">
+    <title>AR♡RA</title>
+
+    
+
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Open+Sans+Condensed:wght@300&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+<link href="css/cover.css" rel="stylesheet">
+<link href="css/all.css" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      table{
+          margin: 0 auto;
+      }
+      tr, td>p{
+        margin: 0px;
+        padding: 0px;
+      }
+      .num{
+        font-size: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-family: 'Barlow Semi Condensed', sans-serif;
+      }
+      .numLabels{
+        font-size: 12px;
+        font-family: 'Open Sans Condensed', sans-serif;
+      }
+      body {
+        height: 100%;
+        background-image: url('assets/pp1.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    </style>
+
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+  </header>
+
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading" id="hed" style="font-size:30px; font-family: 'Roboto Condensed', sans-serif;">Wedding Invite Coming Soon</h1>
+
+    <div id="countDownText">
+    <table>
+        <tr>
+          <td class="num"><p id="dd">0</p></td>
+          <td class="num"><p id="hh">0</p></td>
+          <td class="num"><p id="mm">0</p></td>
+          <td class="num"><p id="ss">0</p></td>
+        </tr>
+        <tr>
+          <td class="numLabels">Days</td>
+          <td class="numLabels">Hours</td>
+          <td class="numLabels">Minutes</td>
+          <td class="numLabels">Seconds</td>
+        </tr>
+    </table>
+  </div>
+
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p style="font-size: 15px;"><a href="">Arnold</a> <b>♡</b> <a href="">Raveena</a></p>
+    </div>
+  </footer>
+</div>
+</body>
+
+
+<script>
+  var countDownDate = new Date("Dec 20, 2021 09:00:00").getTime();
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  var dayText = 0;
+  var hourText = 0;
+  var minuteText = 0;
+  var secondText = 0;
+
+  function update(){
+    var speed = 10;
+    var speedDays = (days - dayText)/speed;
+    var speedHours = (hours - hourText)/speed;
+    var speedMinutes = (minutes - minuteText)/speed;
+    var speedSeconds = (seconds - secondText)/speed;
+
+    dayText+=speedDays;
+    hourText+=speedHours;
+    minuteText+=speedMinutes;
+    secondText+=speedSeconds;
+    if(dayText < days - 0.5){
+      setTimeout(update, 50)
+      document.getElementById("dd").innerHTML = Math.floor(dayText);
+      document.getElementById("hh").innerHTML = Math.floor(hourText);
+      document.getElementById("mm").innerHTML =Math.floor(minuteText);
+      document.getElementById("ss").innerHTML = Math.floor(secondText);
+    }
+    else{
+      document.getElementById("dd").innerHTML = Math.floor(days);
+      document.getElementById("hh").innerHTML = Math.floor(hours);
+      document.getElementById("mm").innerHTML =Math.floor(minutes);
+      document.getElementById("ss").innerHTML = Math.floor(seconds);
+      return;
+    }
+  }
+  update();
+
+
+  function entered(){
+    console.log(document.getElementById("nameText").value)
+  }
+
+  var timer = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("dd").innerHTML = days;
+      document.getElementById("hh").innerHTML = hours;
+      document.getElementById("mm").innerHTML = minutes;
+      document.getElementById("ss").innerHTML = seconds;
+
+
+    
+  }, 1000);
+</script>
+</html>
